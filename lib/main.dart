@@ -46,15 +46,22 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                // TextField'dan alınan değeri kullanabilirsiniz
-                String enteredText = _textEditingController.text;
-                print('Girilen metin: $enteredText');
-              },
-              child: Text('Giriş Yap'),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.pink,
+            SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {
+                  String enteredText = _textEditingController.text;
+                  print('Girilen metin: $enteredText');
+                },
+                child: Text('Giriş Yap'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.pink,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                        0), // Kenarları kıvrık yapmak için 0 değeri verin
+                  ),
+                ),
               ),
             ),
           ],
