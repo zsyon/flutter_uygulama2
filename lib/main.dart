@@ -1,33 +1,39 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
-    );
+        home: const MyHomePage(),
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          colorSchemeSeed: const Color.fromRGBO(188, 0, 74, 1.0),
+        ));
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+class MyHomePageState extends State<MyHomePage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   bool _isPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -35,32 +41,30 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             TextField(
               controller: _emailController,
-              style: TextStyle(color: Colors.white), // Metin rengini ayarla
               decoration: InputDecoration(
                 labelText: 'Email',
-                labelStyle: TextStyle(color: Colors.white),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
+                    borderSide: BorderSide(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        width: 2)),
+                hintStyle:
+                    TextStyle(color: Theme.of(context).colorScheme.onSurface),
+                border: const OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
-              controller: _passwordController,
-              style: TextStyle(color: Colors.white), // Metin rengini ayarla
+              controller: _passwordController, // Metin rengini ayarla
               obscureText: !_isPasswordVisible, // Şifreyi gizle/göster
               decoration: InputDecoration(
                 labelText: 'Şifre',
-                labelStyle: TextStyle(color: Colors.white),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
+                    borderSide: BorderSide(
+                        color: Theme.of(context).colorScheme.primary,
+                        width: 2)),
+                hintStyle:
+                    TextStyle(color: Theme.of(context).colorScheme.onSurface),
+                border: const OutlineInputBorder(),
                 suffixIcon: GestureDetector(
                   onTap: () {
                     setState(() {
@@ -69,42 +73,37 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   child: Icon(
                     _isPasswordVisible
-                        ? Icons.visibility
-                        : Icons.visibility_off,
-                    color: Colors.white,
+                        ? Icons.visibility_off
+                        : Icons.visibility,
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SizedBox(
               width: double.infinity,
               height: 50,
-              child: ElevatedButton(
-                onPressed: () {
+              child: InkWell(
+                onTap: () {
                   String enteredEmail = _emailController.text;
                   String enteredPassword = _passwordController.text == ""
                       ? ""
                       : _passwordController.text;
-                  print('Girilen email: $enteredEmail');
-                  print('Girilen şifre: $enteredPassword');
+                  debugPrint('Girilen email: $enteredEmail');
+                  debugPrint('Girilen şifre: $enteredPassword');
                 },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.pink,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
-                  ),
-                ),
-                child: Text(
-                  'Giriş Yap',
-                  style: TextStyle(color: Colors.white),
-                ),
+                child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromRGBO(188, 0, 74, 1.0),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Center(
+                        child: Text('Giriş Yap', style: TextStyle()))),
               ),
             ),
           ],
         ),
       ),
-      backgroundColor: Color.fromARGB(255, 48, 46, 46), // Arka plan rengi
     );
   }
 }
