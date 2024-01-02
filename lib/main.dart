@@ -19,7 +19,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  TextEditingController _textEditingController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,18 +32,33 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
-              controller: _textEditingController,
+              controller: _emailController,
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 labelText: 'Email',
-                border: OutlineInputBorder(),
+                labelStyle: TextStyle(color: Colors.white),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
               ),
             ),
             SizedBox(height: 16),
             TextField(
-              controller: _textEditingController,
+              controller: _passwordController,
+              style: TextStyle(color: Colors.white),
+              obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Şifre',
-                border: OutlineInputBorder(),
+                labelStyle: TextStyle(color: Colors.white),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
               ),
             ),
             SizedBox(height: 16),
@@ -51,8 +67,10 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  String enteredText = _textEditingController.text;
-                  print('Girilen metin: $enteredText');
+                  String enteredEmail = _emailController.text;
+                  String enteredPassword = _passwordController.text;
+                  print('Girilen email: $enteredEmail');
+                  print('Girilen şifre: $enteredPassword');
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.pink,
@@ -69,6 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      backgroundColor: Color.fromARGB(255, 48, 46, 46),
     );
   }
 }
