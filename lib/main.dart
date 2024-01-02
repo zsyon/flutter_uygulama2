@@ -54,13 +54,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   String enteredText = _textEditingController.text;
                   print('Girilen metin: $enteredText');
                 },
-                child: Text('Giriş Yap'),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.pink,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                        0), // Kenarları kıvrık yapmak için 0 değeri verin
+                    borderRadius: BorderRadius.circular(0),
                   ),
+                ),
+                child: Text(
+                  'Giriş Yap',
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
             ),
