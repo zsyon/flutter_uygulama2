@@ -22,6 +22,8 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
+  bool _isPasswordVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             TextField(
               controller: _emailController,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white), // Metin rengini ayarla
               decoration: InputDecoration(
                 labelText: 'Email',
                 labelStyle: TextStyle(color: Colors.white),
@@ -48,8 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 16),
             TextField(
               controller: _passwordController,
-              style: TextStyle(color: Colors.white),
-              obscureText: true,
+              style: TextStyle(color: Colors.white), // Metin rengini ayarla
+              obscureText: !_isPasswordVisible, // Şifreyi gizle/göster
               decoration: InputDecoration(
                 labelText: 'Şifre',
                 labelStyle: TextStyle(color: Colors.white),
@@ -58,6 +60,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
+                ),
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
+                  child: Icon(
+                    _isPasswordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -68,7 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ElevatedButton(
                 onPressed: () {
                   String enteredEmail = _emailController.text;
-                  String enteredPassword = _passwordController.text;
+                  String enteredPassword = _passwordController.text == ""
+                      ? ""
+                      : _passwordController.text;
                   print('Girilen email: $enteredEmail');
                   print('Girilen şifre: $enteredPassword');
                 },
@@ -87,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      backgroundColor: Color.fromARGB(255, 48, 46, 46),
+      backgroundColor: Color.fromARGB(255, 48, 46, 46), // Arka plan rengi
     );
   }
 }
