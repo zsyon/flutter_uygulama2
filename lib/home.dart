@@ -4,17 +4,26 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purple, // Appbar'ın rengi burada ayarlanıyor
+      ),
       body: Center(
         child: Text('Home Screen  aaaaaaaaaa'),
       ),
+      backgroundColor: Colors.white, // Arka plan rengi burada ayarlanıyor
     );
   }
+}
+
+void main() {
+  runApp(const MaterialApp(
+    home: HomeScreen(),
+  ));
 }
