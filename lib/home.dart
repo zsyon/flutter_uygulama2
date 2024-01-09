@@ -63,8 +63,66 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-              height: 150,
-              width: double.infinity,
+              height: 120,
+              width: 330,
+              child: const Center(
+                child: Text(
+                  'RESTORANLARIMIZzzzzzzzzz',
+                  style: TextStyle(
+                    color: Colors.purple, // Mor renk
+                    fontWeight: FontWeight.bold, // Kalın font
+                    fontSize: 18, // Font büyüklüğü
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              margin: const EdgeInsets.only(top: 2, left: 2, right: 2),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius:
+                    BorderRadius.circular(12), // Kenarları yuvarlak yapma
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5), // Gölge rengi
+                    spreadRadius: 3,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3), // Gölge offset'i
+                  ),
+                ],
+              ),
+              height: 120,
+              width: 330,
+              child: const Center(
+                child: Text(
+                  'RESTORANLARIMIZ',
+                  style: TextStyle(
+                    color: Colors.purple, // Mor renk
+                    fontWeight: FontWeight.bold, // Kalın font
+                    fontSize: 18, // Font büyüklüğü
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              margin: const EdgeInsets.only(top: 2, left: 2, right: 2),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius:
+                    BorderRadius.circular(12), // Kenarları yuvarlak yapma
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5), // Gölge rengi
+                    spreadRadius: 3,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3), // Gölge offset'i
+                  ),
+                ],
+              ),
+              height: 120,
+              width: 330,
               child: const Center(
                 child: Text(
                   'RESTORANLARIMIZ',
