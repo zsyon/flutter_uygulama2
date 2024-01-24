@@ -127,18 +127,3 @@ class MyHomePageState extends State<MyHomePage> {
   }
 }
 
-// class Homescreen extends StatelessWidget {
-//   const Homescreen({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Home Screen'),
-//       ),
-//       body: const Center(
-//         child: Text('Welcome to Home Screen!'),
-//       ),
-//     );
-//   }
-// }
