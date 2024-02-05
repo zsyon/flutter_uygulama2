@@ -32,23 +32,28 @@ class RestorantContainer extends StatelessWidget {
         child: Row(
           children: [
             Container(
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                    image: NetworkImage(image),
-                    fit: BoxFit.cover,
-                  ),
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                  image: NetworkImage(image),
+                  fit: BoxFit.cover,
                 ),
-                width: 80,
-                height: 80),
+              ),
+              width: 80,
+              height: 80,
+            ),
             const SizedBox(width: 10),
-            Text(
-              title,
-              style: const TextStyle(
+            Container(
+              height: 80, // İstediğiniz yüksekliği ayarlayabilirsiniz
+              child: Text(
+                title,
+                style: const TextStyle(
                   color: Colors.purple,
                   fontWeight: FontWeight.bold,
-                  fontSize: 12),
+                  fontSize: 18,
+                ),
+              ),
             ),
           ],
         ),

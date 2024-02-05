@@ -93,17 +93,17 @@ class HomePage extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           const Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               RestorantContainer(
                 image:
                     'https://cdn.pixabay.com/photo/2016/11/18/14/05/brick-wall-1834784_960_720.jpg',
-                title: 'Restoran 1',
+                title: 'Mert Makarna Salonu',
               ),
               RestorantContainer(
                 image:
                     'https://cdn.pixabay.com/photo/2016/11/18/14/05/brick-wall-1834784_960_720.jpg',
-                title: 'Restoran 2',
+                title: 'JS Balık Restoranı',
               ),
             ],
           ),
